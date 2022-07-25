@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class GalleryTest {
@@ -17,7 +18,7 @@ public class GalleryTest {
     public WebDriver driver = DriverConfig.getWebDriver();
     
    
-    @Test(priority = 0)
+    @BeforeClass
     public void login()
     {   
         driver.findElement(By.cssSelector("ul:nth-child(3) > li:nth-child(1)")).click();
@@ -38,7 +39,7 @@ public class GalleryTest {
         System.out.println(actText);
     } 
     
-    @Test(priority = 1)
+    @Test(priority = 0)
     public void createGallery() {
     	
     	driver.findElement(By.xpath("//a[@href='/create']")).click();
@@ -66,7 +67,7 @@ public class GalleryTest {
         System.out.println(actTitle);
     }
     
-    @Test(priority = 2)
+    @Test(priority = 1)
     public void editGallery()
    {	
     	driver.findElement(By.cssSelector(".grid > div:nth-child(1) > h2 > a")).click();
@@ -90,7 +91,7 @@ public class GalleryTest {
     	driver.findElement(By.xpath("//button[@type='submit']")).click();
     } 
     
-    @Test(priority = 3)
+    @Test(priority = 2)
     public void commentGallery()
     {
     	WebDriverWait wait = new WebDriverWait(driver, 5);
@@ -99,7 +100,7 @@ public class GalleryTest {
     	driver.findElement(By.xpath("//button[@type='submit']")).click();
     }
 	
-    @Test(priority = 4)
+    @Test(priority = 3)
     public void deleteGallery()
     {
     	driver.findElement(By.xpath("//div[@class='container']/div/div[2]/button")).click();
@@ -110,5 +111,7 @@ public class GalleryTest {
         System.out.println(actTitle);
         
     	driver.switchTo().alert().accept();
+    	
+    	driver.quit();
     }
 }

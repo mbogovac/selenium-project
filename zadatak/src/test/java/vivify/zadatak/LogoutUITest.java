@@ -1,24 +1,22 @@
 package vivify.zadatak;
 
-import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class GalleryAppLoginTest {
+public class LogoutUITest {
 
-
-    public String baseUrl = " https://gallery-app.vivifyideas.com/";
+	public String baseUrl = " https://gallery-app.vivifyideas.com/";
     String driverPath = "/Users/mila/Documents/selenium/chromedriver";
     public WebDriver driver = DriverConfig.getWebDriver();
-
     
-    @Test
+    
+    @BeforeClass
     public void login()
     {   
         driver.findElement(By.cssSelector("ul:nth-child(3) > li:nth-child(1)")).click();
@@ -37,8 +35,26 @@ public class GalleryAppLoginTest {
         
         Assert.assertEquals(expText, actText);
         System.out.println(actText);
+    } 
+    
+    @Test(priority = 0)
+    public void logoutGetText()
+    {
+        WebElement logout = driver.findElement(By.cssSelector("ul:nth-child(3) > li:nth-child(3) > a"));
+        String expText = "Logout";
+        String actText = logout.getText();
         
-        driver.quit();
+        Assert.assertEquals(expText, actText);
+        System.out.println(actText);
     }
-	
+    
+    @Test(priority = 1)
+    public void logoutIsCentered()
+    {
+        WebElement logout = driver.findElement(By.cssSelector("ul:nth-child(3) > li:nth-child(3) > a"));
+        String rightAlignment = logout.getCssValue("padding-right");
+        String leftAlignment = logout.getCssValue("padding-left");
+        
+        Assert.assertEquals(rightAlignment, leftAlignment);
+    }
 }
