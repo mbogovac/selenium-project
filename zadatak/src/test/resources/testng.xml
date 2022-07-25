@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Tests" verbose="5">
-  <test name="Test1">
+<suite name="GalleryAppTests" verbose="5">
+  <test name="Login">
     <classes>
       <class name="vivify.zadatak.GalleryAppLoginTest"/>
     </classes>
   </test>  
+    <test name="GalleryTests">
+    <classes>
+      <class name="vivify.zadatak.GalleryTest"/>
+    </classes>
+  </test>  
+      <test name="LogoutTest">
+    <classes>
+      <class name="vivify.zadatak.LogoutUITest"/>
+    </classes>
+  </test> 
 </suite>

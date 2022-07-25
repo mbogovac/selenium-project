@@ -16,8 +16,6 @@ public class DriverConfig {
         driver = new ChromeDriver();
         driver.get(baseUrl);
         driver.manage().window().maximize();
-        
         return driver;
-
 	}
 }
