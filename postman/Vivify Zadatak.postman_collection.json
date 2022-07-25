@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "d59ef302-62e4-4c47-a9f2-ff6942ec545e",
+		"name": "Vivify Zadatak",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20152223"
+	},
+	"item": [
+		{
+			"name": "GET gallery",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gallery-api.vivifyideas.com/api/galleries/602",
+					"protocol": "https",
+					"host": [
+						"gallery-api",
+						"vivifyideas",
+						"com"
+					],
+					"path": [
+						"api",
+						"galleries",
+						"602"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Comment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9nYWxsZXJ5LWFwaS52aXZpZnlpZGVhcy5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NTg3NzgwOTUsImV4cCI6MTY1ODc4MTY5NSwibmJmIjoxNjU4Nzc4MDk1LCJqdGkiOiI3M3NCVU5VcmRzVkZGRHg4Iiwic3ViIjo0NjksInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.ZjoDK02J4VWIAc01vSUr7OFrGHvUdwnKJk5ZZ2B9eT0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gallery_id\": 602,\n    \"body\": \"bla bla\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gallery-api.vivifyideas.com/api/comments",
+					"protocol": "https",
+					"host": [
+						"gallery-api",
+						"vivifyideas",
+						"com"
+					],
+					"path": [
+						"api",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST gallery",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9nYWxsZXJ5LWFwaS52aXZpZnlpZGVhcy5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NTg3ODM2MDMsImV4cCI6MTY1ODc4NzIwMywibmJmIjoxNjU4NzgzNjAzLCJqdGkiOiI0T0h6ZW8zUUFPb0oyVEVBIiwic3ViIjo0NjksInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.TeTsoQDerZuJ1JxlQe6sFbj46RxZXJOormuAleB18Rc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Nova galerija\",\n    \"description\": \"opis nove galerije\",\n    \"images\": [\n        \"https://m.media-amazon.com/images/I/81KoSSAwH2L._SL1500_.jpg\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gallery-api.vivifyideas.com/api/galleries",
+					"protocol": "https",
+					"host": [
+						"gallery-api",
+						"vivifyideas",
+						"com"
+					],
+					"path": [
+						"api",
+						"galleries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT gallery",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9nYWxsZXJ5LWFwaS52aXZpZnlpZGVhcy5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NTg3ODM2MDMsImV4cCI6MTY1ODc4NzIwMywibmJmIjoxNjU4NzgzNjAzLCJqdGkiOiI0T0h6ZW8zUUFPb0oyVEVBIiwic3ViIjo0NjksInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.TeTsoQDerZuJ1JxlQe6sFbj46RxZXJOormuAleB18Rc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Nova galerija\",\n    \"description\": \"izmena opisa br 2\",\n    \"images\": [\n        \"https://storage.googleapis.com/pod_public/1300/92289.jpg\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gallery-api.vivifyideas.com/api/galleries/771",
+					"protocol": "https",
+					"host": [
+						"gallery-api",
+						"vivifyideas",
+						"com"
+					],
+					"path": [
+						"api",
+						"galleries",
+						"771"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE gallery",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9nYWxsZXJ5LWFwaS52aXZpZnlpZGVhcy5jb21cL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2NTg3ODM2MDMsImV4cCI6MTY1ODc4NzIwMywibmJmIjoxNjU4NzgzNjAzLCJqdGkiOiI0T0h6ZW8zUUFPb0oyVEVBIiwic3ViIjo0NjksInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.TeTsoQDerZuJ1JxlQe6sFbj46RxZXJOormuAleB18Rc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://gallery-api.vivifyideas.com/api/galleries/771",
+					"protocol": "https",
+					"host": [
+						"gallery-api",
+						"vivifyideas",
+						"com"
+					],
+					"path": [
+						"api",
+						"galleries",
+						"771"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
