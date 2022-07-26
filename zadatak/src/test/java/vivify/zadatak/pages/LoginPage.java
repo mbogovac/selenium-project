@@ -26,7 +26,7 @@ public class LoginPage {
 	
 	public WebElement EmailField() {
 		WebDriverWait wait = new WebDriverWait(driver, 5);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(emailField));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
 		return driver.findElement(emailField);
 	}
 	
