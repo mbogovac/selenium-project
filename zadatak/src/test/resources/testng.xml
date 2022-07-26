@@ -6,14 +6,14 @@
       <class name="vivify.zadatak.GalleryAppLoginTest"/>
     </classes>
   </test>  
-    <test name="GalleryTests">
-    <classes>
+  <test name="GalleryTests">
+      <classes>
       <class name="vivify.zadatak.GalleryTest"/>
     </classes>
-  </test>  
-      <test name="LogoutTest">
-    <classes>
-      <class name="vivify.zadatak.LogoutUITest"/>
-    </classes>
+  </test> 
+  <test name="LogoutTest">
+	  <classes>
+	      <class name="vivify.zadatak.LogoutUITest"/>
+	  </classes>
   </test> 
 </suite>

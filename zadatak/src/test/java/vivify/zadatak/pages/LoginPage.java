@@ -20,6 +20,8 @@ public class LoginPage {
 	By passwordField = By.id("password");
 	By submitButton = By.xpath("//*[@type = 'submit']");
 	
+	By logoutButton = By.cssSelector("ul:nth-child(3) > li:nth-child(3) > a");
+	
 	public WebElement LoginButton() {
 		return driver.findElement(loginButton);
 	}
@@ -38,4 +40,9 @@ public class LoginPage {
 		return driver.findElement(submitButton);
 	}
 	
+	public WebElement LogoutButton() {
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("ul:nth-child(3) > li:nth-child(3) > a")));
+		return driver.findElement(logoutButton);
+	}
 }
